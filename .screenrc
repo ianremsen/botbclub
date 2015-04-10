@@ -1,0 +1,6 @@
+hardstatus alwayslastline '%{= kg}[ %{G}%H %{g}][%= %{= kB}%?%-Lw%?%{+b r}(%{G}%n*%f %t%?(%u)%?%{r})%{-b B}%?%+Lw%?%?%= %{g}%]'
+screen -t cli 1
+select 1
+stuff "mesg y^M"
+screen -t irc 0 irssi
+source ~/.bash_profile
