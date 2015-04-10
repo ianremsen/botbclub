@@ -21,6 +21,7 @@ if [ -d "$HOME/bin" ] ; then
     PATH="$HOME/bin:$PATH"
 fi
 
-export PATH=$PATH:/usr/local/go/bin
-export GOPATH=$HOME/code/go
-export GOBIN=$GOPATH/bin
+# If Go is installed, uncomment.
+#export PATH=$PATH:/usr/local/go/bin
+#export GOPATH=$HOME/code/go
+#export GOBIN=$GOPATH/bin
