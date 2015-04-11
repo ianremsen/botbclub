@@ -41,7 +41,9 @@ fi
 if [ -n "$(command -v yum)" ]; then
     export PKG='yum'
 elif [ -n "$(command -v apt-get)"]; then
-   export PKG='apt-get'
+    export PKG='apt-get'
+elif [ -n "$(command -v pkg)"]; then
+    export PKG='pkg'
 fi
 
 # Includes the alias file.
