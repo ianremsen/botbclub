@@ -40,9 +40,9 @@ fi
 # Sets the PKG env for alias shortcut.
 if [ -n "$(command -v yum)" ]; then
     export PKG='yum'
-elif [ -n "$(command -v apt-get)"]; then
+elif [ -n "$(command -v apt-get)" ]; then
     export PKG='apt-get'
-elif [ -n "$(command -v pkg)"]; then
+elif [ -n "$(command -v pkg)" ]; then
     export PKG='pkg'
 fi
 
