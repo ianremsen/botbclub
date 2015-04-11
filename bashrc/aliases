@@ -1,0 +1,13 @@
+alias ll='ls -l'
+alias la='ls -A'
+alias l='ls -CF'
+alias lla='ls -la'
+
+alias df='df -h'
+
+alias lrg='find . -type f 2>/dev/null -size +50000k -exec ls -lh {} \; | awk '"'"'{ print $9 ": " $5 }'"'"'' # What the fuck?
+
+alias pkg-in="sudo $PKG install"
+alias pkg-rm="sudo $PKG remove"
+alias pkg-up="sudo $PKG update"
+alias pkg-ug="sudo $PKG upgrade"
