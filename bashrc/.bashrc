@@ -26,14 +26,14 @@ if [ -n "$force_color_prompt" ]; then
 fi
 
 # Checks if env var is set for this being a remote system, and properly sets the PS1.
-if $REMOTE=0 then
+if [ "$REMOTE" == "0" ]; then
     export PS1="\[\e[01;34m\]\u\[\e[0m\]\[\e[01;37m\]@\h\[\e[0m\]\[\e[00;37m\]:[\[\e[0m\]\[\e[00;33m\]\w\[\e[0m\]\[\e[00;37m\]]: \[\e[0m\]"
 else
     export PS1="\[\e[01;31m\]\u\[\e[0m\]\[\e[01;37m\]@\h\[\e[0m\]\[\e[00;37m\]:[\[\e[0m\]\[\e[00;33m\]\w\[\e[0m\]\[\e[00;37m\]]: \[\e[0m\]"
 fi
 
 # Checks if the user is root, and properly sets the PS1.
-if $USER="root" then
+if [ "$USER" == "root" ]; then
     export PS1="\[\e[01;35m\]\u\[\e[0m\]\[\e[01;37m\]@\h\[\e[0m\]\[\e[00;37m\]:[\[\e[0m\]\[\e[00;33m\]\w\[\e[0m\]\[\e[00;37m\]]: \[\e[0m\]"
 fi
 
@@ -51,7 +51,7 @@ fi
 # Sets the PKG env for alias shortcut.
 if [ -n "$(command -v yum)" ]; then
     export PKG='yum'
-else if [ -n "$(command -v apt-get)"
+elif [ -n "$(command -v apt-get)"]; then
    export PKG='apt-get'
 fi
 
