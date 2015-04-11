@@ -56,7 +56,7 @@ else if [ -n "$(command -v apt-get)"
 fi
 
 # Includes the alias file.
-if [ -f ~/.bash_aliases ]; then
+if [ -f ~/.aliases ]; then
     source ~/.aliases
 fi
 
