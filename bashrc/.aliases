@@ -28,3 +28,5 @@ alias pkg-ug="sudo $PKG upgrade"
 alias gp='git push'
 alias ga='git add'
 alias gc='git commit'
+
+alias visudo='EDITOR=nano visudo'
