@@ -30,3 +30,8 @@ alias ga='git add'
 alias gc='git commit'
 
 alias visudo='sudo EDITOR=nano visudo'
+
+alias ..='cd ..'
+alias ~='cd'
+
+alias root='sudo -i'
