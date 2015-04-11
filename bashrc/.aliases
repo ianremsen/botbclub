@@ -6,12 +6,15 @@ if [ -x /usr/bin/dircolors ]; then
     alias grep='grep --color=auto'
     alias fgrep='fgrep --color=auto'
     alias egrep='egrep --color=auto'
+    alias less='less --color=auto'
 fi
 
 alias ll='ls -l'
 alias la='ls -A'
 alias l='ls -CF'
 alias lla='ls -la'
+
+alias more='less'
 
 alias df='df -h'
 
@@ -21,3 +24,7 @@ alias pkg-in="sudo $PKG install"
 alias pkg-rm="sudo $PKG remove"
 alias pkg-up="sudo $PKG update"
 alias pkg-ug="sudo $PKG upgrade"
+
+alias gp='git push'
+alias ga='git add'
+alias gc='git commit'
