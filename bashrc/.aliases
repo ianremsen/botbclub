@@ -23,6 +23,7 @@ alias pkg-in="sudo $PKG install"
 alias pkg-rm="sudo $PKG remove"
 alias pkg-up="sudo $PKG update"
 alias pkg-ug="sudo $PKG upgrade"
+alias pkg-ar="sudo $PKG autoremove" 
 
 alias gp='git push'
 alias ga='git add'
