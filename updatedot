@@ -1,12 +1,12 @@
 #!/usr/bin/env bash
 
-if [ -n "$(command -v wget)" ] && [ -x "$(whereis wget)" ]; then
+if [ -n "$(command -v wget)" ] && [ -x "$(whereis wget) | awk '{print $1;}'" ]; then
     wget --no-check-certificate https://raw.githubusercontent.com/ianremsen/misc/master/bashrc/.bashrc -O ~/.bashrc
     wget --no-check-certificate https://raw.githubusercontent.com/ianremsen/misc/master/bashrc/.aliases -O ~/.aliases
     wget --no-check-certificate https://raw.githubusercontent.com/ianremsen/misc/master/.screenrc -O ~/.screenrc
     wget --no-check-certificate https://raw.githubusercontent.com/ianremsen/misc/master/.nanorc -O ~/.nanorc
     wget --no-check-certificate https://raw.githubusercontent.com/ianremsen/misc/master/updatedot -O ~/updatedot
-elif [ -n "$(command -v curl)" ] && [ -x "$(whereis curl)" ]; then
+elif [ -n "$(command -v curl)" ] && [ -x "$(whereis curl) | awk '{print $1;}'" ]; then
     curl https://raw.githubusercontent.com/ianremsen/misc/master/bashrc/.bashrc > ~/.bashrc
     curl https://raw.githubusercontent.com/ianremsen/misc/master/bashrc/.aliases > ~/.aliases
     curl https://raw.githubusercontent.com/ianremsen/misc/master/.screenrc > ~/.screenrc
@@ -14,6 +14,7 @@ elif [ -n "$(command -v curl)" ] && [ -x "$(whereis curl)" ]; then
     curl https://raw.githubusercontent.com/ianremsen/misc/master/updatedot > ~/updatedot
 else
     echo "Neither wget nor curl are executable. What the hell are you running this on? A toaster? At least you can play DOOM."
+    exit 1
 fi
 
 chmod +x updatedot
