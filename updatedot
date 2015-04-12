@@ -1,6 +1,15 @@
 #!/usr/bin/env bash
 
-wget --no-check-certificate https://raw.githubusercontent.com/ianremsen/misc/master/bashrc/.bashrc -O ~/.bashrc
-wget --no-check-certificate https://raw.githubusercontent.com/ianremsen/misc/master/bashrc/.aliases -O ~/.aliases
-wget --no-check-certificate https://raw.githubusercontent.com/ianremsen/misc/master/.screenrc -O ~/.screenrc
-wget --no-check-certificate https://raw.githubusercontent.com/ianremsen/misc/master/.nanorc -O ~/.nanorc
+if [ -n "$(command -v wget)" ]; then
+    wget --no-check-certificate https://raw.githubusercontent.com/ianremsen/misc/master/bashrc/.bashrc -O ~/.bashrc
+    wget --no-check-certificate https://raw.githubusercontent.com/ianremsen/misc/master/bashrc/.aliases -O ~/.aliases
+    wget --no-check-certificate https://raw.githubusercontent.com/ianremsen/misc/master/.screenrc -O ~/.screenrc
+    wget --no-check-certificate https://raw.githubusercontent.com/ianremsen/misc/master/.nanorc -O ~/.nanorc
+elif [ -n "$(command -v curl)" ]; then
+    curl https://raw.githubusercontent.com/ianremsen/misc/master/bashrc/.bashrc > ~/.bashrc
+    curl https://raw.githubusercontent.com/ianremsen/misc/master/bashrc/.aliases > ~/.aliases
+    curl https://raw.githubusercontent.com/ianremsen/misc/master/.screenrc > ~/.screenrc
+    curl https://raw.githubusercontent.com/ianremsen/misc/master/.nanorc > ~/.nanorc
+else
+    echo "Neither wget nor curl found. What the hell are you running this on? A toaster?" # At least you can play DOOM.
+fi
