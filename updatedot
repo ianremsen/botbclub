@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# The script that pulls my dotfiles from Github
 
 if [ -n "$(command -v wget)" ] && [ -x "$( whereis wget | awk '{print $2;}' )" ] ||
                                   [ -x "$( whereis wget | awk '{print $0;}' )" ]; then
