@@ -44,8 +44,6 @@ elif [ -n "$(command -v apt-get)" ]; then
     export PKG='apt-get'
 elif [ -n "$(command -v pkg)" ]; then
     export PKG='pkg'
-else
-    export PKG=''
 fi
 
 # Includes the alias file.
