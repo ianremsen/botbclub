@@ -6,7 +6,7 @@ if [ -n "$(command -v wget)" ] && [ $? != 0 ]; then
     wget --no-check-certificate https://raw.githubusercontent.com/ianremsen/misc/master/.screenrc -O ~/.screenrc
     wget --no-check-certificate https://raw.githubusercontent.com/ianremsen/misc/master/.nanorc -O ~/.nanorc
     wget --no-check-certificate https://raw.githubusercontent.com/ianremsen/misc/master/updatedot -O ~/updatedot
-elif [ -n "$(command -v curl)" ]; then
+elif [ -n "$(command -v curl)" ] && [ $? != 0 ]; then
     curl https://raw.githubusercontent.com/ianremsen/misc/master/bashrc/.bashrc > ~/.bashrc
     curl https://raw.githubusercontent.com/ianremsen/misc/master/bashrc/.aliases > ~/.aliases
     curl https://raw.githubusercontent.com/ianremsen/misc/master/.screenrc > ~/.screenrc
