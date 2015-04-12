@@ -17,3 +17,7 @@ else
 fi
 
 chmod +x updatedot
+
+if [ "$REMOTE" == "0" ]; then
+    sudo mv ~/updatedot /usr/local/bin
+fi
