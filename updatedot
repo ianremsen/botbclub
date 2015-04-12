@@ -13,7 +13,7 @@ elif [ -n "$(command -v curl)" ]; then
     curl https://raw.githubusercontent.com/ianremsen/misc/master/.nanorc > ~/.nanorc
     curl https://raw.githubusercontent.com/ianremsen/misc/master/updatedot > ~/updatedot
 else
-    echo "Neither wget nor curl found. What the hell are you running this on? A toaster?" # At least you can play DOOM.
+    echo "Neither wget nor curl found. What the hell are you running this on? A toaster? At least you can play DOOM."
 fi
 
 chmod +x updatedot
