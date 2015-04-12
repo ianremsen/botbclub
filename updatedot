@@ -21,6 +21,6 @@ fi
 
 chmod +x updatedot
 
-if [ "$REMOTE" == "0" ]; then
+if [ "$REMOTE" == "0" ] && [ "$CYGWIN" != "1" ]; then
     sudo mv ~/updatedot /usr/local/bin
 fi
