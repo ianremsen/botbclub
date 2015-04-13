@@ -3,6 +3,11 @@ case $- in
       *) return;;
 esac
 
+# Includes the machine-specific settings file.
+if [ -f ~/.bashspec ]; then
+    source ~/.bashspec
+fi
+
 HISTCONTROL=ignoreboth
 shopt -s histappend
 HISTSIZE=1000
