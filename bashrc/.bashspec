@@ -1,2 +1,4 @@
+# The file that stores machine-specific settings. The only thing left that's a pain in the ass.
+
 export REMOTE=0 # Change this to 0 if the machine is local
 export CYGWIN=1 # Change this to 1 if the machine is Cygwin
