@@ -8,6 +8,9 @@ if [ -n "$(command -v wget)" ] && [ -x "$( whereis wget | awk '{print $2;}' )" ]
     wget --no-check-certificate https://raw.githubusercontent.com/ianremsen/misc/master/.screenrc -O ~/.screenrc
     wget --no-check-certificate https://raw.githubusercontent.com/ianremsen/misc/master/.nanorc -O ~/.nanorc
     wget --no-check-certificate https://raw.githubusercontent.com/ianremsen/misc/master/updatedot -O ~/updatedot
+    if ! [ -f ~/.bashspec ]; then
+        wget --no-check-certificate https://raw.githubusercontent.com/ianremsen/misc/master/bashrc/.bashspec -O ~/.bashspec
+    fi
 elif [ -n "$(command -v curl)" ] && [ -x "$( whereis curl | awk '{print $2;}' )" ] ||
                                     [ -x "$( whereis curl | awk '{print $0;}' )" ]; then
     curl https://raw.githubusercontent.com/ianremsen/misc/master/bashrc/.bashrc > ~/.bashrc
@@ -15,6 +18,9 @@ elif [ -n "$(command -v curl)" ] && [ -x "$( whereis curl | awk '{print $2;}' )"
     curl https://raw.githubusercontent.com/ianremsen/misc/master/.screenrc > ~/.screenrc
     curl https://raw.githubusercontent.com/ianremsen/misc/master/.nanorc > ~/.nanorc
     curl https://raw.githubusercontent.com/ianremsen/misc/master/updatedot > ~/updatedot
+    if ! [ -f ~/.bashspec ]; then
+        curl https://raw.githubusercontent.com/ianremsen/misc/master/bashrc/.bashspec > ~/.bashspec
+    fi
 else
     echo "Neither wget nor curl are executable. What the hell are you running this on? A toaster? At least you can play DOOM."
     exit 1
