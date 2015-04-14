@@ -42,15 +42,6 @@ if [ "$USER" == "root" ]; then
     export PS1="\[\e[01;35m\]\u\[\e[0m\]\[\e[01;37m\]@\h\[\e[0m\]\[\e[00;37m\]:[\[\e[0m\]\[\e[00;33m\]\w\[\e[0m\]\[\e[00;37m\]]: \[\e[0m\]"
 fi
 
-# Sets the PKG env for alias shortcut.
-if [ -n "$(command -v yum)" ]; then
-    export PKG='yum'
-elif [ -n "$(command -v apt-get)" ]; then
-    export PKG='apt-get'
-elif [ -n "$(command -v pkg)" ]; then
-    export PKG='pkg'
-fi
-
 # Includes the alias file.
 if [ -f ~/.aliases ]; then
     source ~/.aliases
