@@ -1,3 +1,4 @@
+# I have no idea what this does
 case $- in
     *i*) ;;
       *) return;;
@@ -8,20 +9,24 @@ if [ -f ~/.bashspec ]; then
     source ~/.bashspec
 fi
 
+# Misc env
 HISTCONTROL=ignoreboth
 shopt -s histappend
 HISTSIZE=1000
 HISTFILESIZE=2000
 shopt -s checkwinsize
 
+# Debian BS
 if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
     debian_chroot=$(cat /etc/debian_chroot)
 fi
 
+# Term colors!
 case "$TERM" in
     xterm-color) color_prompt=yes;;
 esac
 
+# Force said colors!
 if [ -n "$force_color_prompt" ]; then
     if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
 	color_prompt=yes
@@ -47,6 +52,7 @@ if [ -f ~/.aliases ]; then
     source ~/.aliases
 fi
 
+# Bash completion!
 if ! shopt -oq posix; then
   if [ -f /usr/share/bash-completion/bash_completion ]; then
     . /usr/share/bash-completion/bash_completion
