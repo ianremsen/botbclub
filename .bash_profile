@@ -19,7 +19,7 @@ if [ -n "$(command -v go)" ]; then
     export GOBIN=$GOPATH/bin
 fi
 
-# Allows ssh-agent to work correct on Cygwin
+# Allows ssh-agent to work correctly on Cygwin
 if [ "$CYGWIN" == "1" ]; then
     SSHAGENT=/usr/bin/ssh-agent
     SSHAGENTARGS="-s"
