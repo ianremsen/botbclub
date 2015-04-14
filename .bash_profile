@@ -12,12 +12,14 @@ elif [ -n "$(command -v pkg)" ]; then
     export PKG='pkg'
 fi
 
+# If Go is installed, initialize the env involved
 if [ -n "$(command -v go)" ]; then
     export PATH=$PATH:/usr/local/go/bin
     export GOPATH=$HOME/code/go
     export GOBIN=$GOPATH/bin
 fi
 
+# Allows ssh-agent to work correct on Cygwin
 if [ "$CYGWIN" == "1" ]; then
     SSHAGENT=/usr/bin/ssh-agent
     SSHAGENTARGS="-s"
@@ -27,6 +29,7 @@ if [ "$CYGWIN" == "1" ]; then
     fi
 fi
 
+# Includes my lovingly-crafted .bashrc
 if [ -f "$HOME/.bashrc" ]; then
     source "$HOME/.bashrc"
 fi
