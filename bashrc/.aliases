@@ -1,3 +1,4 @@
+# Colors for ls/dir/grep
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
     alias ls='ls --color=auto'
@@ -8,23 +9,29 @@ if [ -x /usr/bin/dircolors ]; then
     alias egrep='egrep --color=auto'
 fi
 
+# I cannot live without these
 alias ll='ls -l'
 alias la='ls -A'
 alias l='ls -CF'
 alias lla='ls -la'
 
+# Obviously
 alias more='less'
 
+# I like human-readable!
 alias df='df -h'
 
+# Find large files
 alias lrg='find . -type f 2>/dev/null -size +50000k -exec ls -lh {} \; | awk '"'"'{ print $9 ": " $5 }'"'"'' # What the fuck?
 
+# For package management
 alias pkg-in="sudo $PKG install"
 alias pkg-rm="sudo $PKG remove"
 alias pkg-up="sudo $PKG update"
 alias pkg-ug="sudo $PKG upgrade"
 alias pkg-ar="sudo $PKG autoremove" 
 
+# Git shortcuts
 alias gp='git push'
 alias ga='git add'
 alias gc='git commit'
