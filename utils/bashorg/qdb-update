@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
 
 WORKFILE=/opt/bashorg/quotes
-links -source http://bash.org/?random1 | grep 'Permanent link' | gawk -F ? '{print $2}' | gawk -F \" '{print $1}' >> $WORKFILE
+
+links -source http://bash.org/?random1 | grep 'Permanent link' |\
+gawk -F ? '{print $2}' | gawk -F \" '{print $1}' >> $WORKFILE
