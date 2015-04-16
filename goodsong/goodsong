@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 WORKFILE=$HOME/.goodsongs
-LASTFILE=$HOME/.goodsongs.last
+LASTFILE=$WORKFILE.last
 SONGURL=$(sort -R $WORKFILE | head -n 1)
 LASTURL=$(cat $LASTFILE)
 
