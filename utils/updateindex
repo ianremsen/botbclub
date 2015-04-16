@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-cat ~ian/admin_html/indexstatic.html > /var/www/html/index.html
+cat /var/indexstatic.html > /var/www/html/index.html
 for user in $(ls /home)
 do
     if [ "$(md5sum /home/$user/public_html/index.html | awk '{print $1}')" == "18394b347fbcad6ceacbaf3a1ba8d3f5" ]; then
@@ -10,6 +10,6 @@ do
     fi
 done
 
-cat ~ian/admin_html/indexfooter.html >> /var/www/html/index.html
+cat /var/indexfooter.html >> /var/www/html/index.html
 
 # For updating the botb.club homepage, to be run once a minute
