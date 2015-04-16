@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+
 sudo adduser $1 && echo "[INFO] User added to system!"
 sudo echo "$2" | sudo passwd "$1" --stdin && echo "[INFO] User password set!"
 sudo mkdir /home/$1/public_html
