@@ -13,7 +13,7 @@ elif [ -n "$(command -v pkg)" ]; then
 fi
 
 # If Go is installed, initialize the env involved
-if [ -n "$(command -v go)" ]; then
+if [ -d "/usr/local/go" ]; then
     export PATH=$PATH:/usr/local/go/bin
     export GOPATH=$HOME/code/go
     export GOBIN=$GOPATH/bin
