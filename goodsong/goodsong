@@ -1,13 +1,14 @@
 #!/usr/bin/env bash
 
 WORKFILE=$HOME/.goodsongs
+LASTFILE=$HOME/.goodsongs.last
 SONGURL=$(sort -R $WORKFILE | head -n 1)
-LASTURL=$(cat $HOME/.goodsongs.last)
+LASTURL=$(cat $LASTFILE)
 
 if [ "$1" == "add" ]; then
     if [ -n "$2" ] && ! [ -n "$(grep -w $2 $WORKFILE)" ]; then
         echo "$2" >> $WORKFILE
-        echo "$2" > $HOME/.goodsongs.last
+        echo "$2" > $LASTFILE
         exit 0
     else
         echo "Put a URL that's not there, dummy!"
@@ -19,4 +20,4 @@ elif [ "$1" == "undo" ]; then
 fi
 
 x-www-browser $SONGURL 2>> /dev/null
-echo "$SONGURL" > $HOME/.goodsongs.last
+echo "$SONGURL" > $LASTFILE
