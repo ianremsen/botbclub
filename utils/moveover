@@ -2,9 +2,7 @@
 # Makes a botb.club tarball and transplants it to eu.botb.club
 
 if   [ "$1" == "create" ]; then            # Creating the tarball
-    cd; sudo tar -cvzf publichtml.tar.gz \ #
-    /home/*/public_html/ /var/www/html/  \ # Gross.
-    /var/index* /var/default.html          #
+    cd; sudo tar -cvzf publichtml.tar.gz /home/*/public_html/ /var/www/html/ /var/index* /var/default.html # Gross.
     scp publichtml.tar.gz vpn@10.0.0.2     # Copying it over
 elif [ "$1" == "unpack" ]; then            # Unpacking
     cd ~vpn                                # The user that receives the tarball
@@ -22,6 +20,6 @@ elif [ "$1" == "unpack" ]; then            # Unpacking
                                            #
     sudo mv \~index.html index.html        # Cleanup of the slight mess
     sudo mv \~faq.html   faq.html          # the for-loop made
-else                                       # 
+else                                       #
     echo "Specify what you want!"          # In the case that I haven't slept for
 fi                                         # a while
