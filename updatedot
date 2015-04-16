@@ -28,6 +28,8 @@ else
     exit 1
 fi
 
+cp ~/.bash_profile ~/.profile
+
 chmod +x updatedot
 
 if [ "$REMOTE" == "0" ] && [ "$CYGWIN" != "1" ]; then
