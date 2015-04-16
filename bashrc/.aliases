@@ -37,6 +37,7 @@ alias ga='git add'
 alias gc='git commit'
 
 alias visudo='sudo EDITOR=nano visudo'
+alias crontab='EDITOR=nano crontab'
 
 alias ..='cd ..'
 alias ~='cd'
