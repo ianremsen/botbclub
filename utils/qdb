@@ -3,7 +3,7 @@
 WORKFILE=/opt/bashorg/quotes
 QUOTENUM=$(sort -R $WORKFILE | head -n 1)
 
-if [ "$1" == update ]; then
+if [ "$1" == "update" ]; then
     links -source http://bash.org/?random1 | grep 'Permanent link' | gawk -F ? '{print $2}' | gawk -F \" '{print $1}' >> $WORKFILE
     exit 0
 fi
