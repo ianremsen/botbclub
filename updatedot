@@ -35,3 +35,5 @@ chmod +x updatedot
 if [ "$REMOTE" == "0" ] && [ "$CYGWIN" != "1" ]; then
     sudo mv ~/updatedot /usr/local/bin
 fi
+
+source ~/.bash_profile
