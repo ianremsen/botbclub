@@ -9,7 +9,7 @@ elif [ "$1" == "unpack" ]; then            # Unpacking
     cd ~vpn                                # The user that receives the tarball
     sudo mv  publichtml.tar.gz $HOME; cd   # Moving it home so we can operate on it
     tar zxfv publichtml.tar.gz             # Extracting
-    sudo rm  publichtml.tar.gz                  # Removing the tarball
+    sudo rm  publichtml.tar.gz             # Removing the tarball
     sudo mv home/*         /var/www/html   # Stripping the guts out and moving them
     sudo mv var/www/html/* /var/www/html   # to the Apache default directory
                                            #
