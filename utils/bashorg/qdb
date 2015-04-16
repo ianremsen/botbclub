@@ -1,0 +1,6 @@
+#/usr/bin/env bash
+
+workfile=/opt/bashorg/quotes
+quotenum=$(sort -R $workfile | head -n 1)
+
+links -dump http://bash.org/?$quotenum | sed -n '/^.*[X].*$/,/^.*Home.*Latest.*$/{/^.*[X].*$/d;/^.*Home.*Latest.*$/d;p}'
