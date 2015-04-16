@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-WORKFILE=/opt/bashorg/quotes
+WORKFILE=/etc/quotes
 QUOTENUM=$(sort -R $WORKFILE | head -n 1)
 
 if [ "$1" == "update" ]; then
