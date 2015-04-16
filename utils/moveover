@@ -3,7 +3,7 @@
 
 if   [ "$1" == "create" ]; then            # Creating the tarball
     cd; sudo tar -cvzf publichtml.tar.gz \ #
-    /home/*/public_html/ /var/www/html/ \  # Gross.
+    /home/*/public_html/ /var/www/html/  \ # Gross.
     /var/index* /var/default.html          #
     scp publichtml.tar.gz vpn@10.0.0.2     # Copying it over
 elif [ "$1" == "unpack" ]; then            # Unpacking
