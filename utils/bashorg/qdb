@@ -1,4 +1,4 @@
-#/usr/bin/env bash
+#!/usr/bin/env bash
 
 workfile=/opt/bashorg/quotes
 quotenum=$(sort -R $workfile | head -n 1)
