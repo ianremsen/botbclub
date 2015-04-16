@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+WORKFILE=$HOME/.goodsongs
+SONGURL=$(sort -R $WORKFILE | head -n 1)
+LASTURL=$(cat $HOME/.goodsongs.last)
+
+if [ "$1" == "rmlast" ]; then
+    grep -v "$LASTURL" $WORKFILE > $WORKFILE.temp && mv $WORKFILE.temp $WORKFILE
+    exit 0
+fi
+
+x-www-browser $SONGURL 2>> /dev/null
+echo "$SONGURL" > $HOME/.goodsongs.last
