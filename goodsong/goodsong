@@ -5,7 +5,7 @@ SONGURL=$(sort -R $WORKFILE | head -n 1)
 LASTURL=$(cat $HOME/.goodsongs.last)
 
 if [ "$1" == "add" ]; then
-    if [ -n "$2" ] && ! [ -n "$(grep -w $1 $WORKFILE)" ]; then
+    if [ -n "$2" ] && ! [ -n "$(grep -w $2 $WORKFILE)" ]; then
         echo "$2" >> $WORKFILE
         echo "$2" > $HOME/.goodsongs.last
         exit 0
