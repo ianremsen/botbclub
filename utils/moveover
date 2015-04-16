@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+# Takes a botb.club tarball and transplants it to eu.botb.club
+
+cd ~vpn/                              # The user that recieves the tarball
+sudo mv  publichtml.tar.gz $HOME; cd  # Moving it home so we can operate on it
+tar zxfv publichtml.tar.gz            # Unpacking
+sudo mv home/*         /var/www/html  # Stripping the guts out and moving them
+sudo mv var/www/html/* /var/www/html  # to the Apache default directory
+                                      #
+cd /var/www/html                      # Moving to the Apache public directory
+for user in $(ls .); do               # For-loop that adjusts/moves the
+    sudo mv $user/public_html/* $user # public_html dirs and 
+    sudo mv $user ~$user              # adds tildes as seen on botb.club
+    rm ~$user/public_html/ -r         # Also cleans up the now empty dirs
+done                                  #
+                                      #
+sudo mv \~index.html index.html       # Cleanup of the slight mess
+sudo mv \~faq.html   faq.html         # the for-loop made
