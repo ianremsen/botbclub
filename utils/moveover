@@ -10,8 +10,8 @@ elif [ "$1" == "unpack" ]; then            # Unpacking
     sudo mv  publichtml.tar.gz $HOME; cd   # Moving it home so we can operate on it
     tar zxfv publichtml.tar.gz             # Extracting
     sudo rm  publichtml.tar.gz             # Removing the tarball
-    sudo mv home/*         /var/www/html   # Stripping the guts out and moving them
-    sudo mv var/www/html/* /var/www/html   # to the Apache default directory
+    sudo mv  home/*         /var/www/html  # Stripping the guts out and moving them
+    sudo mv  var/www/html/* /var/www/html  # to the Apache default directory
                                            #
     cd /var/www/html                       # Moving to the Apache public directory
     for user in $(ls); do                  # For-loop that adjusts/moves the
