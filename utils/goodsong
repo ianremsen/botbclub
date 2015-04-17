@@ -21,10 +21,10 @@ elif [ "$1" == "undo" ]; then
     grep -v "$LASTURL" $WORKFILE > $WORKFILE.temp && mv $WORKFILE.temp $WORKFILE
     exit 0
 elif [ "$1" == "dl" ]; then
-    youtube-dl -f 140 -o ~/Music/$TITLE $SONGURL 
+    youtube-dl -f 140 -o /tmp/$TITLE $SONGURL 
     echo  "$SONGURL" > $LASTFILE
     echo  "Playing $TITLE"
-    screen -m -d $PLAYER ~/Music/$TITLE
+    screen -m -d $PLAYER /tmp/$TITLE
     exit  0
 fi
 
