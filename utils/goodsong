@@ -1,12 +1,12 @@
 #!/usr/bin/env bash
-# Little jukebox script. dl requires libav-tools, links, gawk, and youtube-dl to be installed.
+# Little jukebox script. dl requires some media player, libav-tools, links, gawk, screen, and youtube-dl to be installed.
 
 WORKFILE=$HOME/.goodsongs
 LASTFILE=$WORKFILE.last
 SONGURL=$(sort -R $WORKFILE | head -n 1)
 LASTURL=$(cat $LASTFILE)
 TITLE=$(links -source $SONGURL | grep "eow-title" | gawk -F \" '{print $8}' | tr -d ' ')
-PLAYER=audacious
+PLAYER=audacious # Remember to change this, doof.
 
 if   [ "$1" == "add" ]; then
     if [ -n "$2" ] && ! [ -n "$(grep -w $2 $WORKFILE)" ]; then
@@ -22,10 +22,10 @@ elif [ "$1" == "undo" ]; then
     exit 0
 elif [ "$1" == "dl" ]; then
     youtube-dl -f 140 -o /tmp/$TITLE $SONGURL 
-    echo  "$SONGURL" > $LASTFILE
-    echo  "Playing $TITLE"
+    echo "$SONGURL" > $LASTFILE
+    echo "Playing $TITLE"
     screen -m -d $PLAYER /tmp/$TITLE
-    exit  0
+    exit 0
 fi
 
 echo "Playing $TITLE"
