@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# For updating the botb.club homepage, to be run once a minute
 
 cat /var/indexstatic.html > /var/www/html/index.html
 for user in $(ls /home)
@@ -11,5 +12,3 @@ do
 done
 
 cat /var/indexfooter.html >> /var/www/html/index.html
-
-# For updating the botb.club homepage, to be run once a minute
