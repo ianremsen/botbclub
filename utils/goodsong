@@ -1,11 +1,14 @@
 #!/usr/bin/env bash
+# Little jukebox script. dl requires libav-tools, links, gawk, and youtube-dl to be installed.
 
 WORKFILE=$HOME/.goodsongs
 LASTFILE=$WORKFILE.last
 SONGURL=$(sort -R $WORKFILE | head -n 1)
 LASTURL=$(cat $LASTFILE)
+TITLE=$(links -source $SONGURL | grep "eow-title" | gawk -F \" '{print $8}' | tr -d ' ')
+PLAYER=audacious
 
-if [ "$1" == "add" ]; then
+if   [ "$1" == "add" ]; then
     if [ -n "$2" ] && ! [ -n "$(grep -w $2 $WORKFILE)" ]; then
         echo "$2" >> $WORKFILE
         echo "$2" > $LASTFILE
@@ -17,7 +20,14 @@ if [ "$1" == "add" ]; then
 elif [ "$1" == "undo" ]; then
     grep -v "$LASTURL" $WORKFILE > $WORKFILE.temp && mv $WORKFILE.temp $WORKFILE
     exit 0
+elif [ "$1" == "dl" ]; then
+	youtube-dl -f 140 -o ~/Music/$TITLE.aac $SONGURL 
+	echo  "$SONGURL" > $LASTFILE
+    echo  "Playing $TITLE"
+	screen -m -d $PLAYER ~/Music/$TITLE.aac
+	exit  0
 fi
 
+echo "Playing $TITLE"
 x-www-browser $SONGURL 2>> /dev/null
 echo "$SONGURL" > $LASTFILE
