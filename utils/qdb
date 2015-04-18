@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# Fetches, and prints out >1 bash.org quotes
 
 WORKFILE=/etc/quotes
 QUOTENUM=$(sort -R $WORKFILE | head -n 1)
