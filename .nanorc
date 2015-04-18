@@ -1,1 +1,17 @@
 set tabsize 4
+
+include ~/.nanosyntax/c.nanorc
+include ~/.nanosyntax/css.nanorc
+include ~/.nanosyntax/debian.nanorc
+include ~/.nanosyntax/go.nanorc
+include ~/.nanosyntax/html.nanorc
+include ~/.nanosyntax/javascript.nanorc
+include ~/.nanosyntax/lisp.nanorc
+include ~/.nanosyntax/lua.nanorc
+include ~/.nanosyntax/makefile.nanorc
+include ~/.nanosyntax/nanorc.nanorc
+include ~/.nanosyntax/php.nanorc
+include ~/.nanosyntax/python.nanorc
+include ~/.nanosyntax/sh.nanorc
+include ~/.nanosyntax/tcl.nanorc
+include ~/.nanosyntax/tex.nanorc
