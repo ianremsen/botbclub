@@ -12,9 +12,6 @@ if [ -n "$(command -v wget)" ] && [ -x "$( whereis wget | awk '{print $2;}' )" ]
     if ! [ -f ~/.bashspec ]; then
         wget --no-check-certificate https://raw.githubusercontent.com/ianremsen/misc/master/bashrc/.bashspec -O ~/.bashspec
     fi
-    if ! [ -d ~/.nanosyntax ] && ! [ -d /usr/share/nano ]; then
-        wget botb.club/~ian/nanosyntax.tar.gz -O ~/nanosyntax.tar.gz
-    fi
 elif [ -n "$(command -v curl)" ] && [ -x "$( whereis curl | awk '{print $2;}' )" ] ||
                                     [ -x "$( whereis curl | awk '{print $0;}' )" ]; then
     curl https://raw.githubusercontent.com/ianremsen/misc/master/bashrc/.bashrc > ~/.bashrc
@@ -25,9 +22,6 @@ elif [ -n "$(command -v curl)" ] && [ -x "$( whereis curl | awk '{print $2;}' )"
     curl https://raw.githubusercontent.com/ianremsen/misc/master/.bash_profile > ~/.bash_profile
     if ! [ -f ~/.bashspec ] && ! [ -d /usr/share/nano ]; then
         curl https://raw.githubusercontent.com/ianremsen/misc/master/bashrc/.bashspec > ~/.bashspec
-    fi
-    if ! [ -d ~/.nanosyntax ]; then
-        curl botb.club/~ian/nanosyntax.tar.gz > ~/nanosyntax.tar.gz
     fi
 else
     echo "Neither wget nor curl are executable. What the hell are you running this on? A toaster? At least you can play DOOM."
@@ -40,10 +34,6 @@ chmod +x updatedot
 
 if [ "$REMOTE" == "0" ] && [ "$CYGWIN" != "1" ]; then
     sudo mv ~/updatedot /usr/local/bin
-fi
-
-if [ -f ~/nanosyntax.tar.gz ]; then
-    cd; tar zxfv nanosyntax.tar.gz
 fi
 
 source ~/.bash_profile
