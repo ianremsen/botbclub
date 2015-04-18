@@ -2,7 +2,6 @@ set tabsize 4
 
 include ~/.nanosyntax/c.nanorc
 include ~/.nanosyntax/css.nanorc
-include ~/.nanosyntax/debian.nanorc
 include ~/.nanosyntax/go.nanorc
 include ~/.nanosyntax/html.nanorc
 include ~/.nanosyntax/javascript.nanorc
