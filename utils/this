@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+# The maturest piece of software I'm ever likely to write
 
 import optparse
 
