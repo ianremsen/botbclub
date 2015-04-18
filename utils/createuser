@@ -6,5 +6,5 @@ sudo echo "$2" | sudo passwd "$1" --stdin && echo "[INFO] User password set!"
 sudo mkdir /home/$1/public_html
 sudo cp /var/default.html /home/$1/public_html/index.html && echo "[INFO] Folders created successfully!"
 sudo chown $1:$1 -R /home/$1
-sudo chmod 755 -R /home/$1/ && echo "[INFO] Folder permissions set!"
+sudo chmod 700 -R /home/$1/ && sudo chmod 755 -R /home/$1/public_html/ && echo "[INFO] Folder permissions set!"
 echo "[INFO] User created successfully!"
