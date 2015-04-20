@@ -1,12 +1,20 @@
 #!/usr/bin/env bash
 # Little jukebox script. dl requires libav-tools, links, gawk, and youtube-dl to be installed.
 
+RED="\e[1;31m"
+CYAN="\e[1;34m"
+PURPLE="\e[1;35m"
+GREEN="\e[1;32m"
+COLESCAPE="\e[0m"
+
 WORKFILE=$HOME/.config/goodsongs
 LASTFILE=$WORKFILE.last
 SONGURL=$(sort -R $WORKFILE | head -n 1)
 LASTURL=$(cat $LASTFILE)
-TITLE=$(links -source $SONGURL | grep "eow-title" | gawk -F \" '{print $8}' | tr -d ' ')
+NOWPLAYING="$PURPLE$(links -source $SONGURL | grep "eow-title" | gawk -F \" '{print $8}')$COLESCAPE —— $CYAN$SONGURL"
+TITLE=$(echo $NOWPLAYING | tr -d ' —— $SONGURL' | tr -d ' ')
 PLAYER=audacious
+NUMSONGS="$GREEN$(wc -l $WORKFILE | tr -d " $WORKFILE")$COLESCAPE"
 
 if   [ "$1" == "add" ]; then
     if [ -n "$2" ] && ! [ -n "$(grep -w $2 $WORKFILE)" ]; then
@@ -14,7 +22,7 @@ if   [ "$1" == "add" ]; then
         echo "$2" > $LASTFILE
         exit 0
     else
-        echo "Put a URL that's not there, dummy!"
+        echo -e "$RED[FAIL]$COLESCAPE$PURPLE Put a URL that's not there, dummy!"
         exit 1
     fi
 elif [ "$1" == "undo" ]; then
@@ -28,6 +36,7 @@ elif [ "$1" == "dl" ]; then
     exit  0
 fi
 
-echo "Playing $TITLE"
+echo -e "$RED[GOODSONG]$COLESCAPE There are $NUMSONGS songs to shuffle from!"
+echo -e "$RED[GOODSONG]$COLESCAPE Now playing: $NOWPLAYING"
 x-www-browser $SONGURL 2>> /dev/null
 echo "$SONGURL" > $LASTFILE
