@@ -5,16 +5,17 @@ RED="\e[1;31m"
 CYAN="\e[1;34m"
 PURPLE="\e[1;35m"
 GREEN="\e[1;32m"
-COLESCAPE="\e[0m"
+COLX="\e[0m"
 
 WORKFILE=$HOME/.config/goodsongs
 LASTFILE=$WORKFILE.last
 SONGURL=$(sort -R $WORKFILE | head -n 1)
 LASTURL=$(cat $LASTFILE)
-NOWPLAYING="$PURPLE$(links -source $SONGURL | grep "eow-title" | gawk -F \" '{print $8}')$COLESCAPE —— $CYAN$SONGURL"
-TITLE=$(echo $NOWPLAYING | tr -d ' —— $SONGURL' | tr -d ' ')
+TITLE=$(links -source $SONGURL | grep "eow-title" | gawk -F \" '{print $8}')
+NOWPLAYING="$PURPLE$TITLE$COLX —— $CYAN$SONGURL"
+TITLE=$(echo $TITLE | tr -d ' ')
 PLAYER=audacious
-NUMSONGS="$GREEN$(wc -l $WORKFILE | tr -d " $WORKFILE")$COLESCAPE"
+NUMSONGS="$GREEN$(wc -l $WORKFILE | tr -d " $WORKFILE")$COLX"
 
 if   [ "$1" == "add" ]; then
     if [ -n "$2" ] && ! [ -n "$(grep -w $2 $WORKFILE)" ]; then
@@ -22,7 +23,7 @@ if   [ "$1" == "add" ]; then
         echo "$2" > $LASTFILE
         exit 0
     else
-        echo -e "$RED[FAIL]$COLESCAPE$PURPLE Put a URL that's not there, dummy!"
+        echo -e "$RED[FAIL]$COLX$PURPLE Put a URL that's not there, dummy!"
         exit 1
     fi
 elif [ "$1" == "undo" ]; then
@@ -30,13 +31,13 @@ elif [ "$1" == "undo" ]; then
     exit 0
 elif [ "$1" == "dl" ]; then
     youtube-dl -f 140 -o /tmp/$TITLE $SONGURL
-    echo  "$SONGURL" > $LASTFILE
-    echo  "Playing $TITLE"
+    echo "$SONGURL" > $LASTFILE
+    echo "Playing $TITLE"
     screen -m -d $PLAYER /tmp/$TITLE
-    exit  0
+    exit 0
 fi
 
-echo -e "$RED[GOODSONG]$COLESCAPE There are $NUMSONGS songs to shuffle from!"
-echo -e "$RED[GOODSONG]$COLESCAPE Now playing: $NOWPLAYING"
+echo -e "$RED[GOODSONG]$COLX There are $NUMSONGS songs to shuffle from!"
+echo -e "$RED[GOODSONG]$COLX Now playing: $NOWPLAYING"
 x-www-browser $SONGURL 2>> /dev/null
 echo "$SONGURL" > $LASTFILE
