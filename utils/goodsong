@@ -23,7 +23,7 @@ if   [ "$1" == "add" ]; then
         echo "$2" > $LASTFILE
         exit 0
     else
-        echo -e "$RED[FAIL]$COLX$PURPLE Put a URL that's not there, dummy!"
+        echo -e "$RED[FAIL]$COLX $PURPLEPut a URL that's not there, dummy!"
         exit 1
     fi
 elif [ "$1" == "undo" ]; then
