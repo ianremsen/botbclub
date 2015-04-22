@@ -1,5 +1,5 @@
 if [ "$(uname)" == "FreeBSD" ] && [ -n "$(command -v gnuls)" ]; then
-    alias ls='gnuls'
+    alias ls='gnuls --color=auto'
 fi
 
 # Colors for ls/dir/grep
