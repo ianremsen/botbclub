@@ -23,13 +23,13 @@ NOWPLAYING="$PURPLE$ARTIST - $TITLE$COLX —— $CYAN$SONGURL"
 TITLE=$(echo $TITLE | tr -d ' ')
 PLAYER=audacious
 
-while getopts "dUnt:a:u:" flag; do
+while getopts "dEnt:a:u:" flag; do
     case "${flag}" in
         n) new=1 ;;
         t) newtitle="${OPTARG}" ;;
         a) newartist="${OPTARG}" ;;
         u) newurl="${OPTARG}" ;;
-        U) undo=1 ;;
+        E) edit=1 ;;
         d) dl=1 ;;
     esac
 done
@@ -38,9 +38,9 @@ if [ -n "$new" ] && [ -z $(grep -w "$newartist" $WORKFILE | grep "$newtitle") ] 
     echo "$newurl;$newartist;$newtitle" >> $WORKFILE 
     echo "$newurl;$newartist;$newtitle" > $LASTFILE
     exit 0
-elif [ "$undo" == "1" ]; then
-    sed -v "/$LASTURL/d" $WORKFILE > $WORKFILE.temp && mv $WORKFILE.temp $WORKFILE
-    exit 0
+elif [ "$edit" == "1" ]; then
+    nano $WORKFILE
+	exit 0
 elif [ "$dl" == "1" ]; then
     youtube-dl -f 140 -o /tmp/$TITLE $SONGURL
     echo "$SONGURL" > $LASTFILE
