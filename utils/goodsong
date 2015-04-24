@@ -24,14 +24,14 @@ TITLE=$(echo $TITLE | tr -d ' ')
 PLAYER=audacious
 
 while getopts "dUnt:a:u:" flag; do
-	case "${flag}" in
-		n) new=1 ;;
-		t) newtitle="${OPTARG}" ;;
-		a) newartist="${OPTARG}" ;;
-		u) newurl="${OPTARG}" ;;
-		U) undo=1 ;;
-		d) dl=1 ;;
-	esac
+    case "${flag}" in
+        n) new=1 ;;
+        t) newtitle="${OPTARG}" ;;
+        a) newartist="${OPTARG}" ;;
+        u) newurl="${OPTARG}" ;;
+        U) undo=1 ;;
+        d) dl=1 ;;
+    esac
 done
 
 if [ -n "$new" ] && [ -z $(grep -w "$newartist" $WORKFILE | grep "$newtitle") ] 2>> /dev/null; then
