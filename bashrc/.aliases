@@ -52,6 +52,10 @@ alias pkg-ar="sudo $PKG autoremove"
 alias gp='git push'
 alias ga='git add'
 alias gc='git commit'
+alias gcam='git commit -am'
+alias gcl='git clone'
+alias gph='git push'
+alias gll='git pull'
 
 alias visudo='sudo EDITOR=nano visudo'
 alias crontab='EDITOR=nano crontab'
