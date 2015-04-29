@@ -16,25 +16,25 @@
 
 if [ -n "$(command -v wget)" ] && [ -x "$( whereis wget | awk '{print $2;}' )" ] ||
                                   [ -x "$( whereis wget | awk '{print $0;}' )" ]; then
-    wget --no-check-certificate https://raw.githubusercontent.com/ianremsen/misc/master/bashrc/.bashrc -O ~/.bashrc
-    wget --no-check-certificate https://raw.githubusercontent.com/ianremsen/misc/master/bashrc/.aliases -O ~/.aliases
-    wget --no-check-certificate https://raw.githubusercontent.com/ianremsen/misc/master/.screenrc -O ~/.screenrc
-    wget --no-check-certificate https://raw.githubusercontent.com/ianremsen/misc/master/.nanorc -O ~/.nanorc
-    wget --no-check-certificate https://raw.githubusercontent.com/ianremsen/misc/master/updatedot -O ~/updatedot
-    wget --no-check-certificate https://raw.githubusercontent.com/ianremsen/misc/master/.bash_profile -O ~/.bash_profile
+    wget --no-check-certificate https://raw.githubusercontent.com/ianremsen/misc/master/dotfiles/.bashrc -O ~/.bashrc
+    wget --no-check-certificate https://raw.githubusercontent.com/ianremsen/misc/master/dotfiles/.aliases -O ~/.aliases
+    wget --no-check-certificate https://raw.githubusercontent.com/ianremsen/misc/master/dotfiles/.screenrc -O ~/.screenrc
+    wget --no-check-certificate https://raw.githubusercontent.com/ianremsen/misc/master/dotfiles/.nanorc -O ~/.nanorc
+    wget --no-check-certificate https://raw.githubusercontent.com/ianremsen/misc/master/utils/updatedot -O ~/updatedot
+    wget --no-check-certificate https://raw.githubusercontent.com/ianremsen/misc/master/dotfiles/.bash_profile -O ~/.bash_profile
     if ! [ -f ~/.bashspec ]; then
-        wget --no-check-certificate https://raw.githubusercontent.com/ianremsen/misc/master/bashrc/.bashspec -O ~/.bashspec
+        wget --no-check-certificate https://raw.githubusercontent.com/ianremsen/misc/master/dotfiles/.bashspec -O ~/.bashspec
     fi
 elif [ -n "$(command -v curl)" ] && [ -x "$( whereis curl | awk '{print $2;}' )" ] ||
                                     [ -x "$( whereis curl | awk '{print $0;}' )" ]; then
-    curl https://raw.githubusercontent.com/ianremsen/misc/master/bashrc/.bashrc > ~/.bashrc
-    curl https://raw.githubusercontent.com/ianremsen/misc/master/bashrc/.aliases > ~/.aliases
-    curl https://raw.githubusercontent.com/ianremsen/misc/master/.screenrc > ~/.screenrc
-    curl https://raw.githubusercontent.com/ianremsen/misc/master/.nanorc > ~/.nanorc
-    curl https://raw.githubusercontent.com/ianremsen/misc/master/updatedot > ~/updatedot
-    curl https://raw.githubusercontent.com/ianremsen/misc/master/.bash_profile > ~/.bash_profile
+    curl https://raw.githubusercontent.com/ianremsen/misc/master/dotfiles/.bashrc > ~/.bashrc
+    curl https://raw.githubusercontent.com/ianremsen/misc/master/dotfiles/.aliases > ~/.aliases
+    curl https://raw.githubusercontent.com/ianremsen/misc/master/dotfiles/.screenrc > ~/.screenrc
+    curl https://raw.githubusercontent.com/ianremsen/misc/master/dotfiles/.nanorc > ~/.nanorc
+    curl https://raw.githubusercontent.com/ianremsen/misc/master/utils/updatedot > ~/updatedot
+    curl https://raw.githubusercontent.com/ianremsen/misc/master/dotfiles/.bash_profile > ~/.bash_profile
     if ! [ -f ~/.bashspec ] && ! [ -d /usr/share/nano ]; then
-        curl https://raw.githubusercontent.com/ianremsen/misc/master/bashrc/.bashspec > ~/.bashspec
+        curl https://raw.githubusercontent.com/ianremsen/misc/master/dotfiles/.bashspec > ~/.bashspec
     fi
 else
     echo "Neither wget nor curl are executable. What the hell are you running this on? A toaster? At least you can play DOOM."
@@ -43,7 +43,7 @@ fi
 
 cp ~/.bash_profile ~/.profile
 
-chmod +x ~/updatedot
+chmod +x updatedot
 
 if [ "$REMOTE" == "0" ] && [ "$CYGWIN" != "1" ]; then
     sudo mv ~/updatedot /usr/local/bin
