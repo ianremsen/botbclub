@@ -49,13 +49,13 @@ alias pkg-ug="sudo $PKG upgrade"
 alias pkg-ar="sudo $PKG autoremove" 
 
 # Git shortcuts
-alias gp='git push'
-alias ga='git add'
-alias gc='git commit'
-alias gcam='git commit -am'
+alias gco='git commit'
+alias gdi='git diff'
 alias gcl='git clone'
-alias gph='git push'
+alias gpu='git push'
 alias gll='git pull'
+alias gadd='git add'
+alias gcam='git commit -am'
 
 alias visudo='sudo EDITOR=nano visudo'
 alias crontab='EDITOR=nano crontab'
