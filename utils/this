@@ -18,17 +18,14 @@ import optparse
 
 def main():
 	l = optparse.OptionParser()
-	l = optparse.OptionParser(description='Generates a beautiful ASCII dong',
-														prog='this',
-														version='this v1.10')
-	l.add_option('--length', '-l', default=7, type=int,
-	help="customizes the length of the dong")
+	l = optparse.OptionParser(description='Generates a beautiful ASCII dong', prog='this', version='this v1.10')
+	l.add_option('--length', '-l', default=7, type=int, help="customizes the length of the dong")
 	opts, args = l.parse_args()
 	try:
 		lenPeen = opts.length
 		if lenPeen <= 400 and lenPeen >= 0:
 			print '8' + ('=' * lenPeen) + 'D'
-		elif lenPeen >= -400:
+		elif lenPeen >= -400 and lenPeen <= 0:
 			print 'D' + ('=' * abs(lenPeen)) + '8'
 		else:
 			print '8=======D'
