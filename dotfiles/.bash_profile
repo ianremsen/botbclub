@@ -48,11 +48,11 @@ if [ '$CYGWIN' == '1' ]; then
 fi
 
 # Wine
-if [ -n "$(command -v wine)" ]
+if [ -n '$(command -v wine)' ]; then
     export C='~/.wine/drive_c/'
 fi
 
 # Includes my lovingly-crafted .bashrc
-if [ -f "$HOME/.bashrc" ]; then
+if [ -f '$HOME/.bashrc' ]; then
     source '$HOME/.bashrc'
 fi
