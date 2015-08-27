@@ -64,3 +64,8 @@ alias ..='cd ..'
 alias ~='cd'
 
 alias root='sudo -i'
+
+# Fun 'n Games
+if [ $C != "" ]; then
+	alias quake='wine $C/GOG\ Games/Quake/Winquake.exe -nolan'
+fi
