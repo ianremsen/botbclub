@@ -68,4 +68,5 @@ alias root='sudo -i'
 # Fun 'n Games
 if [ $C != "" ]; then
 	alias quake='wine $C/GOG\ Games/Quake/Winquake.exe -nolan'
+	alias doom='env WINEPREFIX="/home/ian/.wine" wine C:\\windows\\command\\start.exe /Unix /home/ian/.wine/dosdevices/c:/users/Public/Desktop/The\ Ultimate\ DOOM.lnk'
 fi
