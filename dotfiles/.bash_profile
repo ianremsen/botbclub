@@ -49,7 +49,7 @@ fi
 
 # Wine
 if [ -n '$(command -v wine)' ]; then
-    export C='~/.wine/drive_c/'
+    export C=$HOME/.wine/drive_c/
 fi
 
 # Includes my lovingly-crafted .bashrc
