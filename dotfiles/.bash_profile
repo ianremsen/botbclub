@@ -13,19 +13,19 @@
 
 # set PATH so it includes user's private bin if it exists
 if [ -d "$HOME/bin" ] ; then
-    PATH=$HOME/bin:$PATH
+    PATH="$HOME/bin:$PATH"
 fi
 
 # If Go is installed, initialize the environment variables involved
 if [ -d "/usr/local/go" ]; then
-    export PATH=$PATH:/usr/local/go/bin
-    export GOPATH=$HOME/code/go
-    export GOBIN=$GOPATH/bin
+    export PATH="$PATH:/usr/local/go/bin"
+    export GOPATH="$HOME/code/go"
+    export GOBIN="$GOPATH/bin"
 fi
 
 # The same for Racket
 if [ -d "/usr/racket" ]; then
-    export PATH=$PATH:/usr/racket/bin
+    export PATH="$PATH:/usr/racket/bin"
 fi
 
 # Sets the PKG env for alias shortcut.
@@ -49,7 +49,7 @@ fi
 
 # Wine
 if [ -n "$(command -v wine)" ]; then
-    export C=$HOME/.wine/drive_c/
+    export C="$HOME/.wine/drive_c/"
 fi
 
 # Includes my lovingly-crafted .bashrc
