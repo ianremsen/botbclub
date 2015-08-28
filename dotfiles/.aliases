@@ -71,3 +71,5 @@ if [ -n "$(command -v wine)" ]; then
 	alias quake='cd $C/GOG\ Games/Quake; wine Winquake.exe -nolan'
 	alias doom='env WINEPREFIX="/home/ian/.wine" wine C:\\windows\\command\\start.exe /Unix /home/ian/.wine/dosdevices/c:/users/Public/Desktop/The\ Ultimate\ DOOM.lnk'
 fi
+
+# -*- mode: shell;-*-
