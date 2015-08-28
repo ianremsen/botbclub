@@ -1,2 +1,2 @@
-.aliases linguist-language=Shell
-.bashspec linguist-language=Shell
+dotfiles/.aliases linguist-language=Shell
+dotfiles/.bashspec linguist-language=Shell
