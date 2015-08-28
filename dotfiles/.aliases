@@ -11,6 +11,8 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+# -*- mode: shell;-*-
+
 if [ "$(uname)" == "FreeBSD" ] && [ -n "$(command -v gnuls)" ]; then
     alias ls='gnuls --color=auto'
 fi
@@ -71,5 +73,3 @@ if [ -n "$(command -v wine)" ]; then
 	alias quake='cd $C/GOG\ Games/Quake; wine Winquake.exe -nolan'
 	alias doom='env WINEPREFIX="/home/ian/.wine" wine C:\\windows\\command\\start.exe /Unix /home/ian/.wine/dosdevices/c:/users/Public/Desktop/The\ Ultimate\ DOOM.lnk'
 fi
-
-# -*- mode: shell;-*-
