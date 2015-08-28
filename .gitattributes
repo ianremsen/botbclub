@@ -1,0 +1,2 @@
+*.aliases linguist-language=Shell
+*.bashspec linguist-language=Shell
