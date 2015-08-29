@@ -31,12 +31,14 @@ done
 
 FILE="$HOME/.config/cena/$CHOSEN.mp3"
 
-if [ -f $FILE ]; then
+if [ ! -f $FILE ]; then
+	echo "File not found!"
+elif (( $VOLUME >= 150 )) || (( $VOLUME <= 0 )); then
+	echo "Invalid volume!"
+else
 	amixer -D pulse sset Master $VOLUME% > /dev/null &&
 	echo "[PLAYING] $CHOSEN.mp3"
 	sleep 2
 	mpg123 $FILE &> /dev/null
 	amixer -D pulse sset Master 75% > /dev/null
-else
-	echo "File not found!"
 fi
