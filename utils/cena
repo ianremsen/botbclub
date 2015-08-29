@@ -39,6 +39,8 @@ if [ ! -f $FILE ]; then
 	echo "File not found!"
 elif (( $VOLUME >= 150 )) || (( $VOLUME <= 0 )); then
 	echo "Invalid volume!"
+elif (( $TTW >= 2048 )) || (( $TTW <= 0 )); then
+	echo "Invalid time to wait!"
 else
 	amixer -D pulse sset Master $VOLUME% > /dev/null &&
 	echo "[PLAYING] $CHOSEN.mp3"
