@@ -15,7 +15,23 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-amixer -D pulse sset Master 125%
+VOLUME=125
+CHOSEN="cena"
+
+while getopts "t:v:" opt; do
+	case $opt in
+		t)
+			CHOSEN=$OPTARG
+			;;
+		v)
+			VOLUME=$OPTARG
+			;;
+	esac
+done
+
+FILE="$HOME/.config/cena/$CHOSEN.mp3"
+
+amixer -D pulse sset Master $VOLUME%
 sleep 2
-mpg123 ~/Documents/cena.mp3
+mpg123 $FILE
 amixer -D pulse sset Master 75%
