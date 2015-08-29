@@ -17,14 +17,18 @@
 
 VOLUME=125
 CHOSEN="cena"
+TTW=2
 
-while getopts "t:v:" opt; do
+while getopts "t:v:w:" opt; do
 	case $opt in
 		t)
 			CHOSEN=$OPTARG
 			;;
 		v)
 			VOLUME=$OPTARG
+			;;
+		w)
+			TTW=$OPTARG
 			;;
 	esac
 done
@@ -38,7 +42,7 @@ elif (( $VOLUME >= 150 )) || (( $VOLUME <= 0 )); then
 else
 	amixer -D pulse sset Master $VOLUME% > /dev/null &&
 	echo "[PLAYING] $CHOSEN.mp3"
-	sleep 2
+	sleep $TTW
 	mpg123 $FILE &> /dev/null
 	amixer -D pulse sset Master 75% > /dev/null
 fi
