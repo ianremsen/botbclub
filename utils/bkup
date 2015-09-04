@@ -18,7 +18,7 @@ HOMEBACK=1
 
 while getopts "w:" opt; do
 	case $opt in
-		h)
+		w)
 			HOMEBACK=0
 			;;
 	esac
