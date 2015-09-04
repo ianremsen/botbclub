@@ -1,5 +1,4 @@
 # The file that stores machine-specific settings. The only thing left that's a pain in the ass.
-
 # -*- mode: shell;-*-
 
 export REMOTE=1 # Change this to 0 if the machine is local
