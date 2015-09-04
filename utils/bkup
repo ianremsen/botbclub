@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Backups for remote VPSs
+# Backups for remote VPSs and local
 
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -27,5 +27,5 @@ done
 if [ $HOMEBACK == 0 ]; then
 	sudo tar -cvpzf $HOME/$(hostname)_$(date -I).tar.gz --exclude=$HOME/$(hostname)_$(date -I).tar.gz --one-file-system /
 else
-	tar -cvpzf $HOME/$(hostname)_$(date -I).tar.gz --exclude=$HOME/$(hostname)_$(date -I).tar.gz $HOME
+	tar -cvpzf $HOME/$(hostname)_home_$(date -I).tar.gz --exclude=$HOME/$(hostname)_home_$(date -I).tar.gz $HOME
 fi
