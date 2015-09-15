@@ -51,10 +51,22 @@ alias pkg-ar="sudo $PKG autoremove"
 alias pkg-se="sudo $PKG search"
 alias pkg-u="pkg-up; pkg-ug"
 
-if [ $PKG == "pkg" ]; then
-	alias pkg-du='sudo freebsd-update fetch; sudo freebsd-update install'
-else
-	alias pkg-du="sudo $PKG dist-upgrade"
+# specific
+
+if [ $PKG == "pacman" ]; then
+	alias pkg-in="sudo $PKG -S"
+	alias pkg-rm="sudo $PKG -Rs"
+	alias pkg-se="sudo $PKG -Ss"
+	alias pkg-up="sudo $PKG -Syu"
+	alias pkg-ar="sudo $PKG -Qdtq | $PKG -Rs -"
+	alias pkg-u="pkg-up"
+	alias pkg-ug="pkg-up"
+	unalias pkg-du
+elif [ $PKG == "pkg" ]; then
+	unalias pkg-du
+elif [ $PKG == "yum" ]; then
+	alias pkg-u="pkg-up"
+	unalias pkg-du
 fi
 
 # Git shortcuts
