@@ -36,7 +36,7 @@ elif [ -n "$(command -v apt-get)" ]; then
 elif [ -n "$(command -v pkg)" ]; then
     export PKG="pkg"
 elif [ -n "$(command -v pacman)" ]; then
-    export PKG="pkg"
+    export PKG="pacman"
 fi
 
 # Allows ssh-agent to work correctly on Cygwin
