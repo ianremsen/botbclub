@@ -25,6 +25,11 @@ if [ -n "$(command -v wget)" ] && [ -x "$( whereis wget | awk '{print $2;}' )" ]
     if ! [ -f ~/.bashspec ]; then
         wget --no-check-certificate https://raw.githubusercontent.com/ianremsen/misc/master/dotfiles/.bashspec -O ~/.bashspec
     fi
+    if [ "$REMOTE" == "0" ]; then
+        wget --no-check-certificate https://raw.githubusercontent.com/ianremsen/misc/master/dotfiles/.tmux.conf.local -O ~/.tmux.conf
+    else
+        wget --no-check-certificate https://raw.githubusercontent.com/ianremsen/misc/master/dotfiles/.tmux.conf.remote -O ~/.tmux.conf
+    fi
 elif [ -n "$(command -v curl)" ] && [ -x "$( whereis curl | awk '{print $2;}' )" ] ||
                                     [ -x "$( whereis curl | awk '{print $0;}' )" ]; then
     curl https://raw.githubusercontent.com/ianremsen/misc/master/dotfiles/.bashrc > ~/.bashrc
@@ -36,6 +41,11 @@ elif [ -n "$(command -v curl)" ] && [ -x "$( whereis curl | awk '{print $2;}' )"
     if ! [ -f ~/.bashspec ] && ! [ -d /usr/share/nano ]; then
         curl https://raw.githubusercontent.com/ianremsen/misc/master/dotfiles/.bashspec > ~/.bashspec
     fi
+    if [ "$REMOTE" == "0" ]; then
+        curl https://raw.githubusercontent.com/ianremsen/misc/master/dotfiles/.tmux.conf.local > ~/.tmux.conf
+    else
+        curl https://raw.githubusercontent.com/ianremsen/misc/master/dotfiles/.tmux.conf.remote > ~/.tmux.conf
+    fi
 else
     echo "Neither wget nor curl are executable. What the hell are you running this on? A toaster? At least you can play DOOM."
     exit 1
@@ -46,7 +56,7 @@ cp ~/.bash_profile ~/.profile
 chmod +x updatedot
 
 if [ "$REMOTE" == "0" ] && [ "$CYGWIN" != "1" ]; then
-    sudo mv ~/updatedot /usr/local/bin
+	sudo mv ~/updatedot /usr/local/bin
 fi
 
 source ~/.bash_profile
