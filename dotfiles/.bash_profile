@@ -28,6 +28,11 @@ if [ -d "/usr/racket" ]; then
     export PATH="$PATH:/usr/racket/bin"
 fi
 
+# The same for Racket
+if [ -d "/usr/bin/mono" ]; then
+    export PATH="$PATH:/usr/bin/mono"
+fi
+
 # Sets the PKG env for alias shortcut.
 if [ -n "$(command -v yum)" ]; then
     export PKG="yum"
