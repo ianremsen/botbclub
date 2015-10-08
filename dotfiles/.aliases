@@ -65,7 +65,7 @@ if [ $PKG == "pacman" ]; then
 	unalias pkg-du
 elif [ $PKG == "pkg" ]; then
 	unalias pkg-du
-elif [ $PKG == "yum" ]; then
+elif [ $PKG == "yum" ] || [ $PKG == "dnf" ]; then
 	alias pkg-u="pkg-up"
 	unalias pkg-du
 fi
@@ -84,7 +84,7 @@ alias crontab='EDITOR=nano crontab'
 alias root='sudo -i'
 
 # Fun 'n Games
-if [ -n "$(command -v wine)" ]; then
+if [ -n "$(command -v wine)" ] && [ $REMOTE == "0" ]; then
 	alias quake='cd $C/GOG\ Games/Quake; wine Winquake.exe -nolan'
 	alias doom='env WINEPREFIX="/home/ian/.wine" wine C:\\windows\\command\\start.exe /Unix /home/ian/.wine/dosdevices/c:/users/Public/Desktop/The\ Ultimate\ DOOM.lnk'
 fi
