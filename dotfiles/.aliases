@@ -55,19 +55,19 @@ alias pkg-u="pkg-up; pkg-ug"
 # specific
 
 if [ $PKG == "pacman" ]; then
-	alias pkg-in="sudo $PKG -S"
-	alias pkg-rm="sudo $PKG -Rs"
-	alias pkg-se="sudo $PKG -Ss"
-	alias pkg-up="sudo $PKG -Syu"
-	alias pkg-ar="sudo $PKG -Qdtq | $PKG -Rs -"
-	alias pkg-u="pkg-up"
-	alias pkg-ug="pkg-up"
-	unalias pkg-du
+    alias pkg-in="sudo $PKG -S"
+    alias pkg-rm="sudo $PKG -Rs"
+    alias pkg-se="sudo $PKG -Ss"
+    alias pkg-up="sudo $PKG -Syu"
+    alias pkg-ar="sudo $PKG -Qdtq | $PKG -Rs -"
+    alias pkg-u="pkg-up"
+    alias pkg-ug="pkg-up"
+    unalias pkg-du
 elif [ $PKG == "pkg" ]; then
-	unalias pkg-du
+    unalias pkg-du
 elif [ $PKG == "yum" ] || [ $PKG == "dnf" ]; then
-	alias pkg-u="pkg-up"
-	unalias pkg-du
+    alias pkg-u="pkg-up"
+    unalias pkg-du
 fi
 
 # Git shortcuts
@@ -85,6 +85,6 @@ alias root='sudo -i'
 
 # Fun 'n Games
 if [ -n "$(command -v wine)" ] && [ $REMOTE == "0" ]; then
-	alias quake='cd $C/GOG\ Games/Quake; wine Winquake.exe -nolan'
-	alias doom='env WINEPREFIX="/home/ian/.wine" wine C:\\windows\\command\\start.exe /Unix /home/ian/.wine/dosdevices/c:/users/Public/Desktop/The\ Ultimate\ DOOM.lnk'
+    alias quake='cd $C/GOG\ Games/Quake; wine Winquake.exe -nolan'
+    alias doom='env WINEPREFIX="/home/ian/.wine" wine C:\\windows\\command\\start.exe /Unix /home/ian/.wine/dosdevices/c:/users/Public/Desktop/The\ Ultimate\ DOOM.lnk'
 fi
