@@ -35,11 +35,9 @@ fi
 
 # Sets the PKG env for alias shortcut.
 if [ -n "$(command -v yum)" ]; then
-    if [ -n "$(command -v dnf)" ]; then
-        export PKG="dnf"
-    else
-        export PKG="yum"
-    fi
+    export PKG="yum"
+elif [ -n "$(command -v dnf)" ]; then
+    export PKG="dnf"
 elif [ -n "$(command -v apt-get)" ]; then
     export PKG="apt-get"
 elif [ -n "$(command -v pkg)" ]; then
@@ -69,7 +67,16 @@ if [ -f "$HOME/.bashrc" ]; then
 fi
 
 # Removes duplicate entries
-case ":$PATH:" in
-    *":$new_entry:"*) :;;
-    *) PATH="$new_entry:$PATH";;
-esac
+if [ -n "$PATH" ]; then
+    oldPATH=$PATH:; PATH=
+    while [ -n "$oldPATH" ]; do
+        x=${old_PATH%%:*}
+        case $PATH: in
+            *:"$x":*) ;;
+            *) PATH=$PATH:$x;;
+        esac
+        oldPATH=${oldPATH#*:}
+    done
+    PATH=${PATH#:}
+    unset oldPATH x
+fi
