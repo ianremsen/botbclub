@@ -28,7 +28,7 @@ if [ -d "/usr/racket" ]; then
     export PATH="$PATH:/usr/racket/bin"
 fi
 
-# The same for Racket
+# The same for Mono
 if [ -d "/usr/bin/mono" ]; then
     export PATH="$PATH:/usr/bin/mono"
 fi
@@ -67,3 +67,9 @@ fi
 if [ -f "$HOME/.bashrc" ]; then
     source "$HOME/.bashrc"
 fi
+
+# Removes duplicate entries
+case ":$PATH:" in
+    *":$new_entry:"*) :;;
+    *) PATH="$new_entry:$PATH";;
+esac
