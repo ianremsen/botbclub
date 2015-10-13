@@ -70,7 +70,7 @@ fi
 if [ -n "$PATH" ]; then
     oldPATH=$PATH:; PATH=
     while [ -n "$oldPATH" ]; do
-        x=${old_PATH%%:*}
+        x=${oldPATH%%:*}
         case $PATH: in
             *:"$x":*) ;;
             *) PATH=$PATH:$x;;
