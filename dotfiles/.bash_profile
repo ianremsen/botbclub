@@ -34,7 +34,7 @@ if [ -d "/usr/bin/mono" ]; then
 fi
 
 # Sets the PKG env for alias shortcut.
-if [ -n "$(command -v yum)" ] || ! [ -n "$(command -v dnf)" ]; then
+if [ -n "$(command -v yum)" ] && ! [ -n "$(command -v dnf)" ]; then
     export PKG="yum"
 elif [ -n "$(command -v dnf)" ]; then
     export PKG="dnf"
