@@ -13,13 +13,13 @@
 
 # -*- mode: shell;-*-
 
-if [ "$(uname)" == "FreeBSD" ] && [ -n "$(command -v gnuls)" ]; then
+if [ $(uname) == 'FreeBSD' ] && [ -n $(command -v gnuls) ]; then
     alias ls='gnuls --color=auto'
 fi
 
 # Colors for ls/dir/grep
 if  [ -x /usr/bin/dircolors ]; then
-    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+    test -r ~/.dircolors && eval $(dircolors -b ~/.dircolors) || eval $(dircolors -b)
     alias ls='ls --color=auto'
     alias dir='dir --color=auto'
     alias vdir='vdir --color=auto'
@@ -40,33 +40,33 @@ alias more='less'
 alias df='df -h'
 
 # Find large files
-alias lrg='find . -type f 2>/dev/null -size +50000k -exec ls -lh {} \; | awk '"'"'{ print $9 ": " $5 }'"'"'' # What the fuck?
+alias lrg='find . -type f 2>/dev/null -size +50000k -exec ls -lh {} \; | awk "{ print $9 ": " $5 }"'
 
 # For package management
-alias pkg-in="sudo $PKG install"
-alias pkg-rm="sudo $PKG remove"
-alias pkg-up="sudo $PKG update"
-alias pkg-ug="sudo $PKG upgrade"
-alias pkg-ar="sudo $PKG autoremove" 
-alias pkg-se="sudo $PKG search"
-alias pkg-du="sudo $PKG dist-upgrade"
-alias pkg-u="pkg-up; pkg-ug"
+alias pkg-in='sudo $PKG install'
+alias pkg-rm='sudo $PKG remove'
+alias pkg-up='sudo $PKG update'
+alias pkg-ug='sudo $PKG upgrade'
+alias pkg-ar='sudo $PKG autoremove'
+alias pkg-se='sudo $PKG search'
+alias pkg-du='sudo $PKG dist-upgrade'
+alias pkg-u='pkg-up; pkg-ug'
 
 # specific
 
-if [ $PKG == "pacman" ]; then
-    alias pkg-in="sudo $PKG -S"
-    alias pkg-rm="sudo $PKG -Rs"
-    alias pkg-se="sudo $PKG -Ss"
-    alias pkg-up="sudo $PKG -Syu"
-    alias pkg-ar="sudo $PKG -Qdtq | $PKG -Rs -"
-    alias pkg-u="pkg-up"
-    alias pkg-ug="pkg-up"
+if [ $PKG == 'pacman' ]; then
+    alias pkg-in='sudo $PKG -S'
+    alias pkg-rm='sudo $PKG -Rs'
+    alias pkg-se='sudo $PKG -Ss'
+    alias pkg-up='sudo $PKG -Syu'
+    alias pkg-ar='sudo $PKG -Qdtq | $PKG -Rs -'
+    alias pkg-u='pkg-up'
+    alias pkg-ug='pkg-up'
     unalias pkg-du
-elif [ $PKG == "pkg" ]; then
+elif [ $PKG == 'pkg' ]; then
     unalias pkg-du
-elif [ $PKG == "yum" ] || [ $PKG == "dnf" ]; then
-    alias pkg-u="pkg-up"
+elif [ $PKG == 'yum' ] || [ $PKG == 'dnf' ]; then
+    alias pkg-u='pkg-up'
     unalias pkg-du
 fi
 
