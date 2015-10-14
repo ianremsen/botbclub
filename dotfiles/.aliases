@@ -83,3 +83,5 @@ alias visudo='sudo EDITOR=nano visudo'
 alias crontab='EDITOR=nano crontab'
 
 alias root='sudo -i'
+
+alias gop='xdg-open'
