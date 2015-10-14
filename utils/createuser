@@ -3,7 +3,7 @@
 
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
-# the Free Software Foundation, either version 3 of the License, or 
+# the Free Software Foundation, either version 3 of the License, or
 # (at your option) any later version.
 #
 # This program is distributed in the hope that it will be useful,
@@ -14,10 +14,10 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-sudo adduser $1 && echo "[INFO] User added to system!"
-sudo echo "$2" | sudo passwd "$1" --stdin && echo "[INFO] User password set!"
+sudo adduser $1 && echo '[INFO] User added to system!'
+sudo echo $2 | sudo passwd $1 --stdin && echo '[INFO] User password set!'
 sudo mkdir /home/$1/public_html
-sudo cp /var/default.html /home/$1/public_html/index.html && echo "[INFO] Folders created successfully!"
+sudo cp /var/default.html /home/$1/public_html/index.html && echo '[INFO] Folders created successfully!'
 sudo chown $1:$1 -R /home/$1
-sudo chmod 711 -R /home/$1/ && sudo chmod 755 -R /home/$1/public_html/ && echo "[INFO] Folder permissions set!"
-echo "[INFO] User created successfully!"
+sudo chmod 711 -R /home/$1/ && sudo chmod 755 -R /home/$1/public_html/ && echo '[INFO] Folder permissions set!'
+echo '[INFO] User created successfully!'

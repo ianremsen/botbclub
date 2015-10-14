@@ -14,7 +14,7 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-if [ $1 == "whole" ]; then
+if [ $1 == 'whole' ]; then
 	sudo tar -cvpzf $HOME/$(hostname)_$(date -I).tar.gz --exclude=$HOME/$(hostname)_$(date -I).tar.gz --one-file-system /
 else
 	tar -cvpzf $HOME/$(hostname)_home_$(date -I).tar.gz --exclude=$HOME/$(hostname)_home_$(date -I).tar.gz $HOME

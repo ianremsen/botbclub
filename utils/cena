@@ -16,10 +16,10 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 VOLUME=125
-CHOSEN="cena"
+CHOSEN='cena'
 TTW=2
 
-while getopts "t:v:w:" opt; do
+while getopts 't:v:w:' opt; do
 	case $opt in
 		t)
 			CHOSEN=$OPTARG
@@ -33,17 +33,17 @@ while getopts "t:v:w:" opt; do
 	esac
 done
 
-FILE="$HOME/.config/cena/$CHOSEN.mp3"
+FILE='$HOME/.config/cena/$CHOSEN.mp3'
 
 if [ ! -f $FILE ]; then
-	echo "File not found!"
+	echo 'File not found!'
 elif (( $VOLUME >= 150 )) || (( $VOLUME <= 0 )); then
-	echo "Invalid volume!"
+	echo 'Invalid volume!'
 elif (( $TTW >= 2048 )) || (( $TTW <= 0 )); then
-	echo "Invalid time to wait!"
+	echo 'Invalid time to wait!'
 else
 	amixer -D pulse sset Master $VOLUME% > /dev/null &&
-	echo "[PLAYING] $CHOSEN.mp3"
+	echo '[PLAYING] $CHOSEN.mp3'
 	sleep $TTW
 	mpg123 $FILE &> /dev/null
 	amixer -D pulse sset Master 75% > /dev/null

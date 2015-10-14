@@ -14,12 +14,12 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-MD5="18394b347fbcad6ceacbaf3a1ba8d3f5"
+MD5='18394b347fbcad6ceacbaf3a1ba8d3f5'
 
 cat /var/indexstatic.html > /var/www/html/index.html
 for user in $(ls /home); do
-    INDEX="/home/$user/public_html/index.html"
-    if [ -f $INDEX ] && [ "$(md5sum $INDEX | awk '{print $1}')" != $MD5 ]; then
+    INDEX='/home/$user/public_html/index.html'
+    if [ -f $INDEX ] && [ $(md5sum $INDEX | awk '{print $1}') != $MD5 ]; then
         echo "<li><a href='/~$user'>$user</a></li>" >> /var/www/html/index.html
     fi
 done
