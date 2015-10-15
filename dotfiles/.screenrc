@@ -1,4 +1,0 @@
-hardstatus alwayslastline '%{= kg}[ %{G}%H %{g}][%= %{= kB}%?%-Lw%?%{+b r}(%{G}%n*%f %t%?(%u)%?%{r})%{-b B}%?%+Lw%?%?%= %{g}%]'
-screen -t cli 1
-select 1
-source ~/.bash_profile
